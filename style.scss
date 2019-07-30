@@ -1,0 +1,215 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: 'Courier New', Courier, monospace;
+}
+body{
+    background: rgba(230, 227, 227, 0.486);
+    font-size: 1.2em;
+    padding: 20px 0;
+    input{
+        background: transparent;
+        border: none;
+        border-bottom: 3px solid rgba(180, 187, 187, 0.767);
+        color: rgba(125, 73, 173, 0.822);
+        outline: none;
+        padding: 10px;
+        font-family: serif;
+        font-size: 0.8em;
+        transition: all 0.3s ease-in;
+        position: relative;
+        word-break: break-all;
+        margin: 15px;
+        &::placeholder{
+            padding: 10px;
+            font-size: 1.4em;
+            letter-spacing: 1.5px;
+        }
+        &:focus{
+            border-bottom: 3px solid rgb(22, 197, 188);
+        }
+    }
+    .create-btn{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: none;
+        box-shadow: 0 2px 5px rgba(88, 85, 85, 0.739);
+        position: relative;
+        color: rgb(21, 207, 161);
+        font-weight: bolder;
+        font-size: 1.3em;
+        &::before{
+            position: absolute;
+            content: '';
+            width: 3px;
+            height: 3px;
+            top: 50%;
+            left: 50%;
+            border-radius: 50%;
+            border: 4px solid rgba(75, 72, 72, 0.082);
+            transform: translate(-50%,-50%);
+            transition: all 0.4s ease-in-out;
+        }
+        &::after{
+            position: absolute;
+            content: '';
+            width: 30px;
+            height: 30px;
+            top: 50%;
+            left: 50%;
+            border-radius: 50%;
+            transform: translate(-50%,-50%);
+            transition: all 0.4s ease-in-out;
+        }
+        &:hover{
+            background: rgba(202, 235, 245, 0.822);
+            cursor: pointer;
+            &::before{
+                width: 45px;
+                height: 45px;
+                border-color: rgba(82, 70, 70, 0.137);
+            }
+            &:after{
+                width: 2px;
+                height: 2px;
+                background: rgba(228, 30, 23, 0.698);
+            }
+        }
+    }
+    .all-tasks{ 
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+        margin: 5px 0;
+        text-transform: capitalize;
+        .task-list{
+            text-align: left;
+            margin: 20px 0;
+            color: #9c7e7e;
+            :nth-child(even), :nth-child(odd){
+                padding: 5px;
+                border-radius: 5px;
+                box-shadow: 2px 2px 10px rgba(187, 182, 182, 0.596);
+                transition: all 0.3s ease-in-out;
+                &:hover{
+                    cursor: pointer;
+                    background: rgba(235, 232, 232, 0.911);
+                    transform: scale(1.05);
+                    width: 95%;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+    .todo-list{
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+        text-transform: capitalize;
+        background: rgb(209, 208, 208);
+        margin-top: 20px;
+        .todo-header{
+            padding: 10px;
+            margin-bottom: 10px;
+            justify-content: space-evenly;
+            .task-count{
+                color: rgb(95, 90, 90);
+                margin-top: 5px;
+                font-size: 1rem;
+            }
+        }
+        .todo-body{
+            position: relative;
+            margin-top: 20px;
+            .delete-buttons{
+                display: flex;
+                justify-content: space-evenly;
+                width: 100%;
+                button{
+                    background: none;
+                    outline: none;
+                    border: none;
+                    font-size: 1.5rem;
+                    background: rgb(223, 220, 220);
+                    padding: 5px;
+                    border-radius: 5px;
+                    margin: 5px;
+                    font-family: monospace;
+                    color: rgb(90, 87, 87);
+                    transition: all 0.2s ease;
+                    &:hover{
+                        background: rgb(207, 203, 203);
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+    .active-list{
+        transition: all 0,4s ease-in;
+        color: rgb(161, 26, 26);
+        font-weight: bold;
+    }
+}
+
+@media screen and (min-width: 431px) and (max-width: 800px){
+    body{
+        .all-tasks{ 
+            width: 80%;
+            padding: 20px;
+            background: rgb(228, 226, 226);
+            margin: 0 auto;
+            border-radius: 5px;
+            .task-list{
+                :nth-child(even), :nth-child(odd){
+                    padding: 5px;
+                    border-radius: 5px;
+                    box-shadow: 2px 2px 10px rgba(187, 182, 182, 0.596);
+                    transition: all 0.3s ease-in-out;
+                    &:hover{
+                        cursor: pointer;
+                        background: rgba(235, 232, 232, 0.911);
+                        transform: scale(1.05);
+                        width: 95%;
+                        margin: 0 auto;
+                    }
+                }
+            }
+        }
+        .todo-list{
+            width: 80%;
+            padding: 20px;
+            text-align: center;
+            margin: 20px auto;
+            border-radius: 5px;
+            .todo-header{
+                padding: 10px;
+                margin-bottom: 10px;
+                justify-content: space-evenly;
+                background: rgb(209, 208, 208);
+                display: flex;
+            }
+            .todo-body{
+                position: relative;
+                .delete-buttons{
+                    margin-top: 20px;
+                    button{
+                        margin: 0 10px;
+                        &:hover{
+                            background: rgb(185, 182, 182);
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:801){
+    body{
+        display: none;
+    }
+}
